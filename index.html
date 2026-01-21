@@ -149,6 +149,29 @@
     .error {
       color: #b91c1c;
     }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: #555;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+    }
+
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+    }
+
+    .footer a:hover {
+      border-bottom-color: rgba(37, 99, 235, 0.8);
+    }
+
+    .footer-updated {
+      margin-top: 4px;
+      color: #666;
+    }
   </style>
 </head>
 <body>
@@ -162,6 +185,17 @@
       <div id="status" class="loading">載入中…</div>
       <div id="md-content" style="display:none;"></div>
     </div>
+
+    <div class="footer">
+      <div class="footer-main">
+        規定請依照
+        <a href="https://discord.com/channels/1461742354087153951/1461749176747425915" target="_blank" rel="noopener noreferrer">
+          Discord 頻道公告
+        </a>
+        為主。
+      </div>
+      <div class="footer-updated" id="updated-time"></div>
+    </div>
   </div>
 
   <script>
@@ -173,6 +207,7 @@
 
     const statusEl = document.getElementById("status");
     const contentEl = document.getElementById("md-content");
+    const updatedEl = document.getElementById("updated-time");
 
     // 從同資料夾讀取 law.md（GitHub Pages 上也適用）
     fetch("law.md")
@@ -183,10 +218,28 @@
         return res.text();
       })
       .then((text) => {
-        const html = marked.parse(text);
+        // 從最後一行往上尋找 time: 標記，作為更新時間
+        const lines = text.split(/\r?\n/);
+        let lastTime = null;
+        for (let i = lines.length - 1; i >= 0; i--) {
+          const trimmed = lines[i].trim();
+          if (trimmed.toLowerCase().startsWith("time:")) {
+            lastTime = trimmed.slice(5).trim();
+            // 從 markdown 內容中移除這一行，不在正文顯示
+            lines.splice(i, 1);
+            break;
+          }
+        }
+
+        const cleanedText = lines.join("\n");
+        const html = marked.parse(cleanedText);
         contentEl.innerHTML = html;
         statusEl.style.display = "none";
         contentEl.style.display = "block";
+
+        if (lastTime && updatedEl) {
+          updatedEl.textContent = "最後更新時間：" + lastTime;
+        }
       })
       .catch((err) => {
         console.error(err);
