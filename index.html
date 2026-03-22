@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>伺服器相關規定</title>
 
-  <!-- Google Fonts：Noto Serif TC -->
+  <!-- Google Fonts：Noto Serif TC + Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Markdown 解析庫：marked -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -27,7 +27,7 @@
       padding: 0;
       font-family: "Noto Serif TC", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #fef8e8 0%, #faf5ea 100%);
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       color: #1a1a1a;
       line-height: 1.85;
     }
@@ -40,16 +40,17 @@
 
     header {
       margin-bottom: 40px;
-      border-bottom: 2px solid #1a3a52;
+      border-bottom: 3px solid #0d1b2a;
       padding-bottom: 20px;
       animation: fadeInDown 0.8s ease-out;
     }
 
     header h1 {
       margin: 0 0 8px 0;
-      font-size: 2.2rem;
+      font-size: 2.6rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      font-family: "Playfair Display", "Noto Serif TC", serif;
+      letter-spacing: 0.05em;
       color: #0d1b2a;
     }
 
@@ -61,13 +62,14 @@
     }
 
     .card {
-      background: #fffbf0;
-      border-radius: 12px;
-      padding: 40px 36px;
+      background: #ffffff;
+      border-radius: 0;
+      padding: 48px 44px;
       box-shadow:
-        0 4px 12px rgba(13, 27, 42, 0.08),
-        0 2px 4px rgba(13, 27, 42, 0.04);
-      border: 1px solid #f0e8dc;
+        0 2px 8px rgba(13, 27, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border: 1px solid #d0d7e0;
+      border-top: 3px solid #0d1b2a;
       animation: fadeInUp 0.8s ease-out;
     }
 
@@ -90,26 +92,34 @@
 
     #md-content h1 {
       font-size: 1.8rem;
-      border-bottom: 3px solid #1a3a52;
+      border-bottom: 3px solid #0d1b2a;
       padding-bottom: 0.4em;
+      padding-top: 0.8em;
+      margin-top: 2em;
+      font-family: "Playfair Display", "Noto Serif TC", serif;
+      font-weight: 700;
     }
 
     #md-content h2 {
-      font-size: 1.45rem;
-      border-bottom: 2px solid #2c5aa0;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #1a3a52;
       padding-bottom: 0.3em;
+      padding-top: 0.6em;
+      font-family: "Playfair Display", "Noto Serif TC", serif;
+      font-weight: 700;
     }
 
     #md-content h3 {
       font-size: 1.1rem;
-      color: #2c5aa0;
+      color: #1a3a52;
+      font-weight: 700;
     }
 
     #md-content p {
       margin: 0.8em 0;
       line-height: 1.95;
       color: #2d3748;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     #md-content strong {
@@ -167,15 +177,15 @@
     }
 
     #md-content a {
-      color: #2c5aa0;
+      color: #1a3a52;
       text-decoration: none;
-      border-bottom: 2px solid rgba(44, 90, 160, 0.4);
+      border-bottom: 2px solid rgba(26, 58, 82, 0.3);
       transition: all 0.3s ease;
       font-weight: 600;
     }
 
     #md-content a:hover {
-      border-bottom-color: #2c5aa0;
+      border-bottom-color: #1a3a52;
       color: #0d1b2a;
     }
 
@@ -204,15 +214,15 @@
     }
 
     .footer a {
-      color: #2c5aa0;
+      color: #1a3a52;
       text-decoration: none;
-      border-bottom: 1px solid rgba(44, 90, 160, 0.4);
+      border-bottom: 1px solid rgba(26, 58, 82, 0.3);
       transition: all 0.3s ease;
       font-weight: 600;
     }
 
     .footer a:hover {
-      border-bottom-color: #2c5aa0;
+      border-bottom-color: #1a3a52;
       color: #0d1b2a;
     }
 
@@ -252,6 +262,66 @@
         opacity: 0.6;
       }
     }
+
+    /* 目錄導航樣式 */
+    .toc-container {
+      background: #f8f9fa;
+      border: 1px solid #d0d7e0;
+      border-left: 4px solid #0d1b2a;
+      border-radius: 0;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .toc-container h3 {
+      margin: 0 0 16px 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: "Playfair Display", "Noto Serif TC", serif;
+      color: #0d1b2a;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-list li {
+      margin: 6px 0;
+    }
+
+    .toc-list a {
+      color: #1a3a52;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-weight: 500;
+      padding: 4px 0;
+    }
+
+    .toc-list a:hover {
+      color: #0d1b2a;
+      padding-left: 4px;
+      font-weight: 600;
+    }
+
+    .toc-level-1 {
+      padding-left: 0;
+    }
+
+    .toc-level-2 {
+      padding-left: 20px;
+      color: #718096;
+    }
+
+    .toc-level-2 a {
+      color: #2d3748;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -262,6 +332,7 @@
     </header>
 
     <div class="card">
+      <div id="toc-container" style="display:none;"></div>
       <div id="status" class="loading">載入中…</div>
       <div id="md-content" style="display:none;"></div>
     </div>
@@ -290,6 +361,47 @@
     const statusEl = document.getElementById("status");
     const contentEl = document.getElementById("md-content");
     const updatedEl = document.getElementById("updated-time");
+    const tocContainerEl = document.getElementById("toc-container");
+
+    // 生成目錄
+    function generateTableOfContents(html) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const headings = doc.querySelectorAll('h1, h2');
+      
+      if (headings.length === 0) return null;
+
+      const tocList = document.createElement('ul');
+      tocList.className = 'toc-list';
+
+      headings.forEach((heading, index) => {
+        const level = parseInt(heading.tagName[1]);
+        const text = heading.textContent;
+        const id = `heading-${index}`;
+        
+        // 為原始 HTML 中的標題添加 ID（稍後操作）
+        heading.id = id;
+
+        const li = document.createElement('li');
+        li.className = `toc-level-${level}`;
+
+        const a = document.createElement('a');
+        a.href = `#${id}`;
+        a.textContent = text;
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.getElementById(id);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      return tocList;
+    }
 
     // 從同資料夾讀取 law.md（GitHub Pages 上也適用）
     fetch("law.md")
@@ -352,6 +464,26 @@
         const cleanedText = lines.join("\n");
         const html = marked.parse(cleanedText);
         contentEl.innerHTML = html;
+
+        // 為標題添加 ID
+        const headings = contentEl.querySelectorAll('h1, h2');
+        headings.forEach((heading, index) => {
+          heading.id = `heading-${index}`;
+        });
+
+        // 生成目錄
+        const toc = generateTableOfContents(html);
+        if (toc && toc.children.length > 0) {
+          const tocWrapper = document.createElement('div');
+          tocWrapper.className = 'toc-container';
+          const tocTitle = document.createElement('h3');
+          tocTitle.textContent = '目錄';
+          tocWrapper.appendChild(tocTitle);
+          tocWrapper.appendChild(toc);
+          tocContainerEl.appendChild(tocWrapper);
+          tocContainerEl.style.display = 'block';
+        }
+
         statusEl.style.display = "none";
         contentEl.style.display = "block";
 
