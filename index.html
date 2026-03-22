@@ -313,6 +313,42 @@
           }
         }
 
+        // 彈窗顯示邏輯
+        const showNotice = 1; // 1 為顯示，0 為不顯示
+        if (showNotice) {
+          const noticeOverlay = document.createElement('div');
+          noticeOverlay.style = `
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); display: flex; align-items: center;
+            justify-content: center; z-index: 9999; backdrop-filter: blur(4px);
+          `;
+          
+          const noticeBox = document.createElement('div');
+          noticeBox.style = `
+            background: #fffbf0; padding: 30px; border-radius: 12px;
+            max-width: 400px; width: 90%; text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); border: 2px solid #1a3a52;
+          `;
+          
+          noticeBox.innerHTML = `
+            <h3 style="margin-top:0; color:#c53030;">重要事項</h3>
+            <p style="color:#2d3748; font-weight:600; margin-bottom:20px;">
+              本規約目前存在更新的版本，但尚未發行，故此處內容隨時可能遭到更新，請各位使用者在查詢規約時優先查看底下版本以及更新時間。
+            </p>
+            <button id="close-notice" style="
+              background:#1a3a52; color:white; border:none; padding:10px 25px;
+              border-radius:6px; cursor:pointer; font-family:inherit; font-weight:700;
+            ">我了解了</button>
+          `;
+          
+          noticeOverlay.appendChild(noticeBox);
+          document.body.appendChild(noticeOverlay);
+          
+          document.getElementById('close-notice').onclick = () => {
+            noticeOverlay.remove();
+          };
+        }
+
         const cleanedText = lines.join("\n");
         const html = marked.parse(cleanedText);
         contentEl.innerHTML = html;
