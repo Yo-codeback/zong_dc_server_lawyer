@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>伺服器相關規定</title>
+  <title>伺服器相關規定(尚未實施之新版本)</title>
 
   <!-- Google Fonts：Noto Serif TC + Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -327,8 +327,8 @@
 <body>
   <div class="page">
     <header>
-      <h1>伺服器相關規定</h1>
-      <div class="subtitle">來源文件：law.md / 伺服器規定頻道 </div>
+      <h1>伺服器相關規定(新版未實施)</h1>
+      <div class="subtitle">來源文件：law 2026.0322.0.md</div>
     </header>
 
     <div class="card">
@@ -404,7 +404,7 @@
     }
 
     // 從同資料夾讀取 law.md（GitHub Pages 上也適用）
-    fetch("law.md")
+    fetch("law 2026.0322.0.md")
       .then((res) => {
         if (!res.ok) {
           throw new Error("無法讀取 規定檔案 請洽管理人員 lxy.1085" + res.status);
@@ -445,7 +445,7 @@
           noticeBox.innerHTML = `
             <h3 style="margin-top:0; color:#c53030;">重要事項</h3>
             <p style="color:#2d3748; font-weight:600; margin-bottom:20px;">
-              本規約目前存在更新的版本 但尚未發行 </br> 故此處內容隨時可能遭到更新 </br> 請各位使用者在查詢規約時優先查看底下版本以及更新時間。 </br> <a href="law_new.html" style="color:#1a3a52; text-decoration:underline;">若要查看更新後版本請點我跳轉</a>
+              本規約為較新版本，尚未正式實施，請以 <a href="index.html" style="color:#1a3a52; text-decoration:underline;">目前版本</a> 為準。
             </p>
             <button id="close-notice" style="
               background:#1a3a52; color:white; border:none; padding:10px 25px;
